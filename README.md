@@ -1,36 +1,56 @@
-# python
-part1: Lexer
-    1. copy mycc.py, lexer1.py to pyrite 
-    2. python3 ./mycc.py -1 testfile(eg, tricky.c) 
-    note: I firstly try to use regrex, but it hard to deal with mutiple lines comment and string, so I turn to read char by char
-part3:parser
-    1. copy parser1.py, lexer2.py to pyrite
-    2. python3 ./parser1.py -3 testfile(eg, test1.c) 
-    note: 
-    1.  I first use the LL(1) method, since there are too many conflict in the grammers. I changed to LL(K) method and 
-        this parser use the recursive descend method to macth the grammers. 
-    2.  Did not apply to const struct, so it failed in test3.c in line 17
-    3.  Use lexer2.py since I print directly in lexer1.py, in the lexer2.py Comment the print log
-part4:typechecking
-    1. copy typechecking.py to former file , including lexer2.py and parser1.py 
-    2. python3 ./typechecking.py -4 testfile(eg, test1.c) 
-    note:
-    1. fix bugs in part3, allow const parameters; 
-    2. fix bugs in strucdef, allow strcuct list; 
-    3. fix bugs in funcdec, allow structdec in function body, but still not allow struct in params;
-    4. fix bugs in multiple vardec;
-    5. fix bugs in parse_lval function, will work in A[] 
-part5:codegen
-    1. copy codegen.py, lexer2.py to pyrite
-    2. python3 ./codegen.py -5 testfile
-part6:codegen2, flow contral
-    1. copy codegen.py, lexer2.py to pyrite
-    2. python3 ./codegen.py -6 testfile
-    note: parts 5 and 6 are not finished, I want to get part of credits to check my grade is ok to graduate or not.
-    Thank you so so much.
+# Python C-to-Java Compiler
 
-part2:include, define and ifdef for lexer1
-    1. copy part2 to pyrite
-    2. python3 ./part2.py -2 testfile
-    note:
-    1. It works good for include, still have bugs in defines and ifdef nest
+This project is a C-to-Java compiler developed in Python. It is divided into several parts, including the Lexer, Parser, Type Checking, and Code Generation. Below are the instructions and notes for each part of the project.
+
+## Part 1: Lexer
+
+1. Copy `mycc.py` and `lexer1.py` to the Pyrite directory.
+2. Run the command: `python3 ./mycc.py -1 testfile` (e.g., `tricky.c`)
+
+_Note_: Initially, the regular expression method was used, but it was difficult to handle multiple lines of comments and strings. The alternative approach reads character by character.
+
+## Part 3: Parser
+
+1. Copy `parser1.py` and `lexer2.py` to the Pyrite directory.
+2. Run the command: `python3 ./parser1.py -3 testfile` (e.g., `test1.c`)
+
+_Notes_:
+
+- The LL(1) method was initially used, but due to conflicts in the grammar, the LL(K) method was adopted.
+- The parser uses a recursive descent method to match the grammar.
+- The implementation does not support `const struct` (test3.c, line 17).
+
+## Part 4: Type Checking
+
+1. Copy `typechecking.py` to the existing directory containing `lexer2.py` and `parser1.py`.
+2. Run the command: `python3 ./typechecking.py -4 testfile` (e.g., `test1.c`)
+
+_Notes_:
+
+- Bugs fixed in Part 3:
+  - Allow `const` parameters.
+  - Allow `struct` list in `strucdef`.
+  - Allow `structdec` in function body, but not in parameters.
+  - Allow multiple `vardec`.
+  - Fixed bugs in `parse_lval` function to work with `A[]`.
+
+## Part 5: Code Generation
+
+1. Copy `codegen.py` and `lexer2.py` to the Pyrite directory.
+2. Run the command: `python3 ./codegen.py -5 testfile`
+
+## Part 6: Code Generation 2 - Flow Control
+
+1. Copy `codegen.py` and `lexer2.py` to the Pyrite directory.
+2. Run the command: `python3 ./codegen.py -6 testfile`
+
+_Note_: Parts 5 and 6 are not completed. Partial credit is requested to check if the grade is sufficient for graduation. Thank you for your understanding.
+
+## Part 2: Include, Define, and Ifdef for Lexer1
+
+1. Copy `part2` to the Pyrite directory.
+2. Run the command: `python3 ./part2.py -2 testfile`
+
+_Notes_:
+
+- The implementation works well for `include`, but there are still bugs in `define` and nested `ifdef`.
