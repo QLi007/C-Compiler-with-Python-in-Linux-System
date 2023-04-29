@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "onWindowChange",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

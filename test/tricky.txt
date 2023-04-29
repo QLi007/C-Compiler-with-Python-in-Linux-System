@@ -1,0 +1,40 @@
+/* Some tricky cases and also random ones // */   3
+
+// /* This is a C++ comment, not a C comment
+4
+*/
+><>=<=!=
+= == === ====
+i
+in
+int
+inte
+integ
+intege
+integer
+'c'
+' '
+'\n'
+""
+" "
+"              "
+"+ - * / ++ -- "
+" /* evil 1 */ "
+" // evil 2    "
+// " this is a comment
+
+/*  Multi
+    line
+    comment
+*/
+
+/*/   Still in the comment!  */
+
+/**/    5 
+/***/   6
+/****/  7
+/* /* /* /* */ 8 */
+
+/* 
+    Unclosed comment
+    Error message should indicate where it starts

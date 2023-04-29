@@ -1,0 +1,36 @@
+part1: Lexer
+    1. copy mycc.py, lexer1.py to pyrite 
+    2. python3 ./mycc.py -1 testfile(eg, tricky.c) 
+    note: I firstly try to use regrex, but it hard to deal with mutiple lines comment and string, so I turn to read char by char
+part3:parser
+    1. copy parser1.py, lexer2.py to pyrite
+    2. python3 ./parser1.py -3 testfile(eg, test1.c) 
+    note: 
+    1.  I first use the LL(1) method, since there are too many conflict in the grammers. I changed to LL(K) method and 
+        this parser use the recursive descend method to macth the grammers. 
+    2.  Did not apply to const struct, so it failed in test3.c in line 17
+    3.  Use lexer2.py since I print directly in lexer1.py, in the lexer2.py Comment the print log
+part4:typechecking
+    1. copy typechecking.py to former file , including lexer2.py and parser1.py 
+    2. python3 ./typechecking.py -4 testfile(eg, test1.c) 
+    note:
+    1. fix bugs in part3, allow const parameters; 
+    2. fix bugs in strucdef, allow strcuct list; 
+    3. fix bugs in funcdec, allow structdec in function body, but still not allow struct in params;
+    4. fix bugs in multiple vardec;
+    5. fix bugs in parse_lval function, will work in A[] 
+part5:codegen
+    1. copy codegen.py, lexer2.py to pyrite
+    2. python3 ./codegen.py -5 testfile
+part6:codegen2, flow contral
+    1. copy codegen.py, lexer2.py to pyrite
+    2. python3 ./codegen.py -6 testfile
+    note: parts 5 and 6 are not finished, I want to get part of credits to check my grade is ok to graduate or not.
+    Thank you so so much.
+
+part2:include, define and ifdef for lexer1
+    1. copy part2 to pyrite
+    2. python3 ./part2.py -2 testfile
+    note:
+    1. It works good for include, still have bugs in defines and ifdef nest
+
